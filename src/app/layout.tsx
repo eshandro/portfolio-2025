@@ -1,6 +1,7 @@
-import type { Metadata } from 'next';
-import { Gotu, Lato, Geist_Mono } from 'next/font/google';
+import type {Metadata} from 'next';
+import {Gotu, Lato, Geist_Mono} from 'next/font/google';
 import './globals.css';
+import Providers from '@/components/providers';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -31,11 +32,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${gotu.variable} ${lato.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
